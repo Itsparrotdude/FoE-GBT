@@ -11,7 +11,8 @@ body > section, body > footer {
 
 p {
 	margin: 0.25rem 0 0.5rem;
-    font-size: medium;
+    font-size: 75%;
+    text-align: center;
 }
 
 p:last-child {
@@ -27,6 +28,7 @@ h3 {
 	font-weight: bold;
 	margin: 0;
 	font-size: 1.1em;
+    text-align: center;
 }
 
 .foe-link {

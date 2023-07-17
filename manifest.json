@@ -4,14 +4,14 @@
     "description": "FoE Great Building Tracker",
     "version": "1.0",
     "action": {
-        "default_popup": "/content/popup.html",
-        "default_icon": "/images/The_Arc_16.png"
+        "default_popup": "content/popup.html",
+        "default_icon": "images/theArc_16.png"
       },
     
     "icons": {
-		"16": "/images/The_Arc_16.png",
-        "48": "/images/The_Arc_48.png",
-        "128": "/images/The_Arc_128.png"
-	}
-  }
+		"16": "images/theArc_16.png",
+        "48": "images/theArc_48.png",
+        "128": "images/theArc_128.png"
+    }
+}
   
