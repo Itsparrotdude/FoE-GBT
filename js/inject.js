@@ -38,7 +38,7 @@ function promisedLoadCode(src, base = "base") {
     // ...
   
     // Call your promisedLoadCode function to load scripts
-    promisedLoadCode(extUrl + "path/to/your_script.js").then(() => {
+    promisedLoadCode(extUrl + "js/content.js").then(() => {
       // Script loaded successfully, you can execute any code that depends on the loaded script here.
     });
   
