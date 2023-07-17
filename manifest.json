@@ -4,7 +4,7 @@
     "description": "FoE Great Building Tracker",
     "version": "1.0",
     "action": {
-      "default_popup": "popup.html",
+      "default_popup": "/content/popup.html",
       "default_icon": "/images/The_Arc.webp"
     }
   }
