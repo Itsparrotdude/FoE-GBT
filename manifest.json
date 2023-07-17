@@ -3,8 +3,15 @@
     "name": "FoE-GBT",
     "description": "FoE Great Building Tracker",
     "version": "1.0",
-    "action": {
-      "default_popup": "/content/popup.html",
-      "default_icon": "/images/The_Arc.webp"
-    }
+    "action": [
+      {
+        "default_popup": "/content/popup.html",
+        "default_icon": {
+          "16": "/images/The_Arc_16.png",
+          "48": "/images/The_Arc_48.png",
+          "128": "/images/The_Arc_128.png"
+        }
+      }
+    ]
   }
+  
