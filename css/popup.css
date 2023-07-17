@@ -11,6 +11,7 @@ body > section, body > footer {
 
 p {
 	margin: 0.25rem 0 0.5rem;
+    font-size: medium;
 }
 
 p:last-child {
@@ -30,11 +31,11 @@ h3 {
 
 .foe-link {
 	color: #007bff;
-	cursor: pointer;
+	cursor:grab;
 }
 
 footer {
 	background-color: #eee;
 	font-size: 90%;
-	text-align: right;
+	text-align: center;
 }
