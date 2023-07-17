@@ -29,6 +29,7 @@
     "web_accessible_resources": [
 		{
 			"resources": [
+                "content/popup2.html",
 				"js/*",
 				"vendor/*",
 				"css/*",
@@ -44,8 +45,11 @@
 			"include_globs": [ "*forgeofempires.com/game*" ],
 			"run_at": "document_start",
 			"js": [
-				"js/inject.js"
-			]
+				"js/inject.js",
+                "js/content.js"
+			],
+            "css": ["css/content.css"]
+
 		}
 	],
 
