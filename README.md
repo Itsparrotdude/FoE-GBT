@@ -1,2 +1,2 @@
 # FoE-GBT
-Tracks people in your friends list and neighbourhood with sweet spot great buildings. 
+Forge of Empires Chrome Extension that tracks people in your friends list and neighborhood with sweet spot great buildings. 
