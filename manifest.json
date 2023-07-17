@@ -45,8 +45,7 @@
 			"include_globs": [ "*forgeofempires.com/game*" ],
 			"run_at": "document_start",
 			"js": [
-				"js/inject.js",
-                "js/content.js"
+				"js/inject.js"
 			],
             "css": ["css/content.css"]
 
