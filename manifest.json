@@ -60,7 +60,7 @@
 
 	"externally_connectable" : {
 		"matches": ["https://*.forgeofempires.com/*",
-						"https://www.google.com/"
+					"https://www.google.com/"
 	],
 		"ids": ["*"]
 	}
