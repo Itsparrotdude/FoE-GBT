@@ -36,14 +36,10 @@
 	"content_scripts": [
 	  {
 		"matches": [
-		  "https://*.forgeofempires.com/*",
-		  "https://www.google.com/",
-		  "https://nilaysetiya.github.io/Lawn-Mower-Simulator/"
+		  "https://*.forgeofempires.com/*"
 		],
 		"include_globs": [
-		  "*forgeofempires.com/game*",
-		  "https://www.google.com/",
-		  "https://nilaysetiya.github.io/Lawn-Mower-Simulator/"
+		  "*forgeofempires.com/game*"
 		],
 		"run_at": "document_start",
 		"js": [
@@ -54,7 +50,7 @@
 	  }
 	],
 	"externally_connectable": {
-	  "matches": ["https://*.forgeofempires.com/*", "https://www.google.com/"],
+	  "matches": ["https://*.forgeofempires.com/*"],
 	  "ids": ["*"]
 	}
   }
