@@ -4,7 +4,7 @@
     "description": "FoE Great Building Tracker",
     "version": "1.0",
     "action": {
-        "default_popup": "content/popup.html",
+        "default_popup": "html/popup.html",
         "default_icon": "images/theArc_16.png"
       },
     
@@ -41,7 +41,9 @@
 
 	"content_scripts": [
 		{
-			"matches": ["https://*.forgeofempires.com/*"],
+			"matches": ["https://*.forgeofempires.com/*",
+						"https://www.google.com/"
+					],
 			"include_globs": [ "*forgeofempires.com/game*" ],
 			"run_at": "document_start",
 			"js": [
