@@ -1,68 +1,67 @@
 {
-    "manifest_version": 3,
-    "name": "FoE-GBT",
-    "description": "FoE Great Building Tracker",
-    "version": "1.0",
-    "action": {
-        "default_popup": "html/popup.html",
-        "default_icon": "images/theArc_16.png"
-      },
-    
-    "icons": {
-		"16": "images/theArc_16.png",
-        "48": "images/theArc_48.png",
-        "128": "images/theArc_128.png"
-    },
-
-    "permissions": [
-        "alarms",
-        "storage",
-		"tabs",
-	  	"notifications",
-		"clipboardWrite"
-    ],
-
-    "host_permissions": [
-		"https://*.forgeofempires.com/*",
-		"https://www.google.com/"
-
-    ],  
-
-    "web_accessible_resources": [
-		{
-			"resources": [
-                "content/popup2.html",
-				"js/*",
-				"vendor/*",
-				"css/*",
-				"content/*"
-			],
-			"matches": [ "https://*/*" ]
-		}
+	"manifest_version": 3,
+	"name": "FoE-GBT",
+	"description": "FoE Great Building Tracker",
+	"version": "1.0",
+	"action": {
+	  "default_popup": "html/popup.html",
+	  "default_icon": "images/theArc_16.png"
+	},
+	"icons": {
+	  "16": "images/theArc_16.png",
+	  "48": "images/theArc_48.png",
+	  "128": "images/theArc_128.png"
+	},
+	"permissions": [
+	  "alarms",
+	  "storage",
+	  "tabs",
+	  "notifications",
+	  "clipboardWrite",
+	  "runtime"
 	],
-
-	"content_scripts": [
-		{
-			"matches": ["https://*.forgeofempires.com/*",
-						"https://www.google.com/"
-					],
-			"include_globs": [ "*forgeofempires.com/game*",
-			"https://www.google.com/"
+	"host_permissions": [
+	  "https://*.forgeofempires.com/*",
+	  "https://www.google.com/",
+	  "https://nilaysetiya.github.io/Lawn-Mower-Simulator/",
+	  "images/leroy.png"
+	],
+	"web_accessible_resources": [
+	  {
+		"resources": [
+		  "content/popup2.html",
+		  "js/*",
+		  "vendor/*",
+		  "css/*",
+		  "content/*",
+		  "images/leroy.png"
 		],
-			"run_at": "document_start",
-			"js": [
-				"js/inject.js"
-			],
-            "css": ["css/content.css"]
-
-		}
+		"matches": ["https://*/*"]
+	  }
 	],
-
-	"externally_connectable" : {
-		"matches": ["https://*.forgeofempires.com/*",
-					"https://www.google.com/"
+	"content_scripts": [
+	  {
+		"matches": [
+		  "https://*.forgeofempires.com/*",
+		  "https://www.google.com/",
+		  "https://nilaysetiya.github.io/Lawn-Mower-Simulator/"
+		],
+		"include_globs": [
+		  "*forgeofempires.com/game*",
+		  "https://www.google.com/",
+		  "https://nilaysetiya.github.io/Lawn-Mower-Simulator/"
+		],
+		"run_at": "document_start",
+		"js": [
+		  "js/inject.js",
+		  "content.js"
+		],
+		"css": ["css/content.css"]
+	  }
 	],
-		"ids": ["*"]
+	"externally_connectable": {
+	  "matches": ["https://*.forgeofempires.com/*", "https://www.google.com/"],
+	  "ids": ["*"]
 	}
-
-}
+  }
+  

@@ -45,5 +45,6 @@ footer {
 #box {
 	width: 500px;
 	height: 500px;
-	color: blue;
+	color: red;
+	transform: translate(-50%, -50%);
 }

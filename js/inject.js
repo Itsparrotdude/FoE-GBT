@@ -58,4 +58,11 @@ let scripts = {
   
   // Call the inject function when the document is ready
   document.addEventListener("DOMContentLoaded", inject);
+
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === "getImageUrl") {
+      const imageUrl = chrome.runtime.getURL("images/leroy.png");
+      sendResponse({ imageUrl: imageUrl });
+    }
+  });
   
