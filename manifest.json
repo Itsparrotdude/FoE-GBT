@@ -20,12 +20,6 @@
 	  "clipboardWrite",
 	  "runtime"
 	],
-	"host_permissions": [
-	  "https://*.forgeofempires.com/*",
-	  "https://www.google.com/",
-	  "https://nilaysetiya.github.io/Lawn-Mower-Simulator/",
-	  "images/leroy.png"
-	],
 	"web_accessible_resources": [
 	  {
 		"resources": [
@@ -54,7 +48,7 @@
 		"run_at": "document_start",
 		"js": [
 		  "js/inject.js",
-		  "content.js"
+		  "js/content.js"
 		],
 		"css": ["css/content.css"]
 	  }
