@@ -42,12 +42,4 @@ footer {
 	text-align: center;
 }
 
-#image_test {
-	width: 500px;
-	height: 500px;
-	color: red;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	z-index: 9999999;
-}
+

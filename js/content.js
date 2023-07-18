@@ -48,6 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// content.js
+
+// Function to create an overlay div
 function createOverlay() {
   const overlay = document.createElement('div');
   overlay.style.position = 'absolute';
@@ -56,10 +59,12 @@ function createOverlay() {
   overlay.style.width = '100%';
   overlay.style.height = '100%';
   overlay.style.zIndex = '9999'; // A higher value to appear on top of the canvas
+  overlay.style.pointerEvents = 'none'; // Allow mouse events to pass through
 
   document.body.appendChild(overlay);
   return overlay;
 }
+
 
 // Function to insert the loaded HTML content into the DOM
 function insertHtmlIntoPage(htmlContent) {
