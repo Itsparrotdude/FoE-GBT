@@ -12,4 +12,6 @@ function checkInjection() {
 // Call the checkInjection function when the document is ready
 document.addEventListener("DOMContentLoaded", checkInjection);
 
+chrome.extension.getURL('leroy.png')
+
 
