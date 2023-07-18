@@ -50,4 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(error);
     });
 });
+// Usage: Load and insert the blue_box.html content into the page
+const htmlFileUrl = chrome.runtime.getURL('html/popup2.html');
+loadHtmlFile(htmlFileUrl)
+  .then((htmlContent) => {
+    insertHtmlIntoPage(htmlContent);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
 
