@@ -65,7 +65,7 @@ function createOverlay() {
   return overlay;
 }
 
-
+ 
 // Function to insert the loaded HTML content into the DOM
 function insertHtmlIntoPage(htmlContent) {
   // ... (your existing code for insertHtmlIntoPage)
@@ -79,32 +79,12 @@ function insertHtmlIntoPage(htmlContent) {
   imageElement.src = chrome.runtime.getURL("images/leroy.png");
   // Position the image on the canvas (adjust top and left as needed)
   imageElement.style.position = 'absolute';
-  imageElement.style.top = '50px';
-  imageElement.style.left = '50px';
+  imageElement.style.bottom = '0px';
+  imageElement.style.right = '0px';
 
   // Append the image to the overlay
   overlay.appendChild(imageElement);
 }
-
-
-// Function to insert the loaded HTML content into the DOM
-function insertHtmlIntoPage(htmlContent) {
-  // ... (your existing code for insertHtmlIntoPage)
-
-  // Create the overlay
-  const overlay = createOverlay();
-
-  // Create the image element
-  const imageElement = document.createElement("img");
-  // Directly use the image URL (since it's web_accessible_resource)
-  imageElement.src = chrome.runtime.getURL("images/leroy.png");
-  // Position the image on the canvas (adjust top and left as needed)
-  imageElement.style.position = 'absolute';
-  imageElement.style.top = '50px';
-  imageElement.style.left = '50px';
-
-  // Append the image to the overlay
-  overlay.appendChild(imageElement);
 
   // Adjust overlay position if the game uses iframes
   const gameIframe = document.querySelector("iframe"); // Update this selector based on the actual iframe element used by the game
@@ -113,4 +93,3 @@ function insertHtmlIntoPage(htmlContent) {
     overlay.style.top = iframeRect.top + 'px';
     overlay.style.left = iframeRect.left + 'px';
   }
-}
