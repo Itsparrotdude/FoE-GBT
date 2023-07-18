@@ -17,18 +17,18 @@
 	  "storage",
 	  "tabs",
 	  "notifications",
-	  "clipboardWrite",
-	  "runtime"
+	  "clipboardWrite"
 	],
 	"web_accessible_resources": [
 	  {
 		"resources": [
-		  "content/popup2.html",
+		  "html/popup2.html",
 		  "js/*",
 		  "vendor/*",
 		  "css/*",
-		  "content/*",
-		  "images/leroy.png"
+		  "html/*",
+		  "images/leroy.png",
+          "chrome-extension://nljfmbeipfjdgonopegbbonkphajhgen/html/popup2.html"
 		],
 		"matches": ["https://*/*"]
 	  }
