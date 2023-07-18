@@ -81,6 +81,10 @@ function insertHtmlIntoPage(htmlContent) {
   imageElement.style.position = 'absolute';
   imageElement.style.bottom = '0px';
   imageElement.style.right = '0px';
+  imageElement.style.height = '48px';
+  imageElement.style.width = '50px';
+  imageElement.style.marginRight = '6px';
+  
 
   // Append the image to the overlay
   overlay.appendChild(imageElement);
