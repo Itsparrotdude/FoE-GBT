@@ -54,7 +54,7 @@
 		"run_at": "document_start",
 		"js": [
 		  "js/inject.js",
-		  "content.js"
+		  "js/content.js"
 		],
 		"css": ["css/content.css"]
 	  }
