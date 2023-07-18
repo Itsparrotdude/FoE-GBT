@@ -12,6 +12,8 @@ function checkInjection() {
 // Call the checkInjection function when the document is ready
 document.addEventListener("DOMContentLoaded", checkInjection);
 
+chrome.extension.getURL('leroy.png')
+
 
 // Function to load HTML file using Fetch API
 async function loadHtmlFile(fileUrl) {
