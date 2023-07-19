@@ -132,16 +132,6 @@ function showPopupWindow() {
 document.addEventListener("DOMContentLoaded", () => {
   checkInjection();
 
- 
-  const htmlFileUrl = chrome.runtime.getURL("html/popup2.html");
-  loadHtmlFile(htmlFileUrl)
-    .then((htmlContent) => {
-      insertHtmlIntoPage(htmlContent);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
   // Adjust overlay position if the game uses iframes
   const gameIframe = document.querySelector("iframe"); // Update this selector based on the actual iframe element used by the game
   if (gameIframe) {

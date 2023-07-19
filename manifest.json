@@ -12,6 +12,10 @@
 	  "48": "images/theArc_48.png",
 	  "128": "images/theArc_128.png"
 	},
+
+	"background": {
+	  },
+
 	"permissions": [
 	  "alarms",
 	  "storage",
