@@ -36,10 +36,12 @@
 	"content_scripts": [
 	  {
 		"matches": [
-		  "https://*.forgeofempires.com/*"
+			"https://*.forgeofempires.com/*",
+			"https://www.google.com/"
 		],
 		"include_globs": [
-		  "*forgeofempires.com/game*"
+			"*forgeofempires.com/game*",
+			"https://www.google.com/"
 		],
 		"run_at": "document_start",
 		"js": [
@@ -50,7 +52,7 @@
 	  }
 	],
 	"externally_connectable": {
-	  "matches": ["https://*.forgeofempires.com/*"],
+		"matches": ["https://*.forgeofempires.com/*", "https://www.google.com/"],
 	  "ids": ["*"]
 	}
   }

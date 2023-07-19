@@ -77,13 +77,16 @@ function showPopupWindow() {
     popupWindow.classList.add("popup-window"); // Add the 'popup-window' class to the popup window
     popupWindow.style.position = "fixed";
     popupWindow.style.top = "50%";
-    popupWindow.style.left = "50%";
+    popupWindow.style.left = "100%";
     popupWindow.style.transform = "translate(-50%, -50%)";
     popupWindow.style.backgroundColor = "white";
     popupWindow.style.padding = "20px";
     popupWindow.style.border = "1px solid black";
     popupWindow.style.zIndex = "10000";
     popupWindow.style.color = "black"; // Set the text color to black
+    popupWindow.style.backgroundColor = "blue"
+    popupWindow.style.marginRight = "6px"
+    popupWindow.style.height = "500px"
   
     // Create the header with close option (X button)
     const header = document.createElement("div");
@@ -110,7 +113,7 @@ function showPopupWindow() {
   
     // Add content to the popup window (you can customize this)
     const content = document.createElement("div");
-    content.innerHTML = '<h1>Welcome to the FoE-GBT Menu!</h1>';
+    // content.innerHTML = '<h1>Welcome to the FoE-GBT Menu!</h1>';
     popupWindow.appendChild(content);
   
     // Append the popup window to the body
@@ -150,3 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.style.left = iframeRect.left + "px";
   }
 });
+
+buttonClicked = false
+
+const blueBar = document.getElementById("buttonClicked")
