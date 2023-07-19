@@ -47,11 +47,17 @@ let scripts = {
     // Your implementation of the inject function
     // ...
     
-    // Call your promisedLoadCode function to load scripts
-    promisedLoadCode(extUrl + "js/content.js").then(() => {
-      // Script loaded successfully, you can execute any code that depends on the loaded script here.
-      console.log("Content.js has been successfully injected!");
+
+      // Call your promisedLoadCode function to load scripts
+  promisedLoadCode(extUrl + "js/content.js").then(() => {
+    // Script loaded successfully, you can execute any code that depends on the loaded script here.
+    console.log("Content.js has been successfully injected!");
+
+    // Now load the foeproxy.js script
+    promisedLoadCode(extUrl + "js/foeproxy.js").then(() => {
+      console.log("FoEproxy.js has been successfully injected!");
     });
+  });
     
     // ...
   }

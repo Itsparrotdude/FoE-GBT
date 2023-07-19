@@ -13,15 +13,15 @@
 	  "128": "images/theArc_128.png"
 	},
 
-	"background": {
-	  },
+	"devtools_page": "devtools.js",
 
 	"permissions": [
 	  "alarms",
 	  "storage",
 	  "tabs",
 	  "notifications",
-	  "clipboardWrite"
+	  "clipboardWrite",
+      "webRequest"
 	],
 	"web_accessible_resources": [
 	  {
@@ -55,6 +55,11 @@
 		"css": ["css/content.css"]
 	  }
 	],
+
+    "background": {
+        "service_worker": "background.js" 
+	  },
+
 	"externally_connectable": {
 		"matches": ["https://*.forgeofempires.com/*", "https://www.google.com/"],
 	  "ids": ["*"]
