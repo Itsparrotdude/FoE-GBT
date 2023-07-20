@@ -32,7 +32,8 @@
 		  "css/*",
 		  "html/*",
 		  "images/leroy.png",
-          "chrome-extension://nljfmbeipfjdgonopegbbonkphajhgen/html/popup2.html"
+          "chrome-extension://nljfmbeipfjdgonopegbbonkphajhgen/html/popup2.html",
+		  "images/settingsimage.png"
 		],
 		"matches": ["https://*/*"]
 	  }

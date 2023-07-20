@@ -1,4 +1,4 @@
-// // Function to check if the extension is properly injected
+ // Function to check if the extension is properly injected
 function checkInjection() {
   // ... (your existing code for checkInjection)
 }
@@ -51,84 +51,159 @@ function insertHtmlIntoPage(htmlContent) {
   imageElement.style.borderColor = "#82ae4c";
   imageElement.style.borderWidth = "2px";
 
+ 
+  
+
+
   // Create the overlay
   const overlay = document.createElement("div");
   overlay.style.position = "fixed";
   overlay.style.zIndex = "9999"; // A higher value to appear on top of the canvas
 
+
   // Append the image to the overlay
   overlay.appendChild(imageElement);
+ 
 
   // Add event listener to the Leroy image to show the popup window when clicked
   imageElement.addEventListener("click", showPopupWindow);
 
   document.body.appendChild(overlay);
+  document.body.appendChild(overlay2);
   return overlay;
 }
 
 // Function to show the popup window
 function showPopupWindow() {
-    // Create the popup window
-    const popupWindow = document.createElement("div");
-    popupWindow.classList.add("popup-window"); // Add the 'popup-window' class to the popup window
-    popupWindow.style.position = "fixed";
-    popupWindow.style.top = "82%";
-    popupWindow.style.left = "98.2%";
-    popupWindow.style.transform = "translate(-50%, -50%)";
-    popupWindow.style.backgroundColor = "white";
-    popupWindow.style.padding = "20px";
-    popupWindow.style.border = "1px solid black";
-    popupWindow.style.zIndex = "10000";
-    popupWindow.style.color = "black"; // Set the text color to black
-    popupWindow.style.backgroundColor = "blue"
-    popupWindow.style.marginRight = "6px"
-    popupWindow.style.height = "200px"
-    popupWindow.style.width = "11px"
-    
-  
-    // Create the header with close option (X button)
-    const header = document.createElement("div");
-    header.style.display = "flex";
-    header.style.justifyContent = "space-between";
-    header.style.alignItems = "center";
-    header.style.borderBottom = "1px solid #ccc"; // Add a border to separate the header from the content
-  
-    const closeButton = document.createElement("span");
-    closeButton.textContent = "X";
-    closeButton.style.cursor = "pointer";
-    closeButton.style.fontSize = "16px";
-    closeButton.style.fontWeight = "bold";
-    closeButton.style.color = "red"; // Set the "X" color to red
-    closeButton.style.marginRight = "10px";
-  
-    // Add event listener to close the popup when the close button is clicked
-    closeButton.addEventListener("click", () => {
-      document.body.removeChild(popupWindow);
-    });
-  
-    header.appendChild(closeButton);
-    popupWindow.appendChild(header);
-  
-    // Add content to the popup window (you can customize this)
-    const content = document.createElement("div");
-    // content.innerHTML = '<h1>Welcome to the FoE-GBT Menu!</h1>';
-    popupWindow.appendChild(content);
-  
-    // Append the popup window to the body
-    document.body.appendChild(popupWindow);
-    
-  
-    // Function to close the popup window when clicked
-    function closePopupWindow() {
-      document.body.removeChild(popupWindow);
+  // Create the popup window
+  const popupWindow = document.createElement("div");
+  popupWindow.classList.add("popup-window", "silde-up"); // Add the 'popup-window' class to the popup window
+  popupWindow.style.position = "fixed";
+  popupWindow.style.top = "82%";
+  popupWindow.style.left = "98.2%";
+  popupWindow.style.transform = "translate(-50%, -50%)";
+  popupWindow.style.backgroundColor = "white";
+  popupWindow.style.padding = "20px";
+  popupWindow.style.border = "1px solid black";
+  popupWindow.style.zIndex = "10001"; // Set the zIndex to a higher value
+  popupWindow.style.color = "black"; // Set the text color to black
+  popupWindow.style.backgroundColor = "blue";
+  popupWindow.style.marginRight = "6px";
+  popupWindow.style.height = "200px";
+  popupWindow.style.width = "11px";
+  popupWindow.style.bottom = "-200px";
+  popupWindow.style.transition = "bottom 0.3s ease";
+
+  // Create the image element for the settingsimage
+  const imageElement2 = document.createElement("img");
+  imageElement2.src = chrome.runtime.getURL("images/settingsimage.png");
+  imageElement2.style.position = "absolute";
+  imageElement2.style.bottom = "55px";
+  imageElement2.style.right = "8px";
+  imageElement2.style.height = "44px";
+  imageElement2.style.width = "45px";
+  imageElement2.style.marginRight = "3px";
+  imageElement2.style.zIndex = "10002"; // Set the zIndex to be higher than
+
+  imageElement2.addEventListener("click", showPopupWindow2)
+
+  function showPopupWindow2() {
+    const popupWindow2 = document.createElement("div");
+    popupWindow2.classList.add("popup-window2");
+    popupWindow2.style.position = "fixed";
+    popupWindow2.style.top = "82%";
+    popupWindow2.style.left = "98.2%";
+    popupWindow2.style.transform = "translate(-50%, -50%)";
+    popupWindow2.style.backgroundColor = "black";
+    popupWindow2.style.zIndex = "10002"; // Set the zIndex to be higher than popupWindow
+
+
+    const closeButton2 = document.createElement("span");
+    closeButton2.textContent = "X";
+    closeButton2.style.cursor = "pointer";
+    closeButton2.style.fontSize = "16px";
+    closeButton2.style.fontWeight = "bold";
+    closeButton2.style.color = "red"; // Set the "X" color to red
+    closeButton2.style.marginRight = "10px";
+
+
+    document.body.appendChild(popupWindow2);
+
+    const content2 = document.createElement("div");
+    popupWindow2.appendChild(content2);
+
+    function closePopupWindow2(){
+      document.body.removeChild(popupWindow2);
     }
-  
-    // Close the popup window when clicked anywhere outside the window
-    overlay.addEventListener("click", closePopupWindow);
-    popupWindow.addEventListener("click", (event) => {
+
+    
+
+    overlay.addEventListener("click", closePopupWindow2);
+    popupWindow2.addEventListener("click", (event) => {
       event.stopPropagation();
     });
+
+    closeButton2.addEventListener("click", () => {
+      document.body.removeChild(popupWindow2);
+      
+    });
+    
   }
+    
+  
+  // Create the header with close option (X button)
+  const header = document.createElement("div");
+  header.style.display = "flex";
+  header.style.justifyContent = "space-between";
+  header.style.alignItems = "center";
+  header.style.borderBottom = "1px solid #ccc"; // Add a border to separate the header from the content
+
+  const closeButton = document.createElement("span");
+  closeButton.textContent = "X";
+  closeButton.style.cursor = "pointer";
+  closeButton.style.fontSize = "16px";
+  closeButton.style.fontWeight = "bold";
+  closeButton.style.color = "red"; // Set the "X" color to red
+  closeButton.style.marginRight = "10px";
+
+  // Add event listener to close the popup when the close button is clicked
+  closeButton.addEventListener("click", () => {
+    document.body.removeChild(popupWindow);
+    document.body.removeChild(imageElement2)
+  });
+
+  header.appendChild(closeButton);
+  popupWindow.appendChild(header);
+
+  // Add content to the popup window (you can customize this)
+  const content = document.createElement("div");
+  // content.innerHTML = '<h1>Welcome to the FoE-GBT Menu!</h1>';
+  popupWindow.appendChild(content);
+
+  // Append the popup window to the body
+  document.body.appendChild(popupWindow);
+  document.body.appendChild(imageElement2);
+  
+
+  // Function to close the popup window when clicked
+  function closePopupWindow() {
+    document.body.removeChild(popupWindow);
+  }
+
+  
+
+  // Close the popup window when clicked anywhere outside the window
+  overlay.addEventListener("click", closePopupWindow);
+  popupWindow.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  setTimeout(() => {
+    popupWindow.classList.remove("slide-up");
+  }, 10);
+  }
+
+  
 
 // Call the checkInjection function when the document is ready
 document.addEventListener("DOMContentLoaded", () => {
