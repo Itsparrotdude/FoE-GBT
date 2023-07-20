@@ -127,10 +127,12 @@ function showPopupWindow() {
     closeButton2.style.marginRight = "10px";
 
 
-    document.body.appendChild(popupWindow2);
+    // document.body.appendChild(popupWindow2);
 
-    const content2 = document.createElement("div");
-    popupWindow2.appendChild(content2);
+    // const content2 = document.createElement("div");
+    // popupWindow2.appendChild(content2);
+
+    
 
     function closePopupWindow2(){
       document.body.removeChild(popupWindow2);
@@ -147,6 +149,23 @@ function showPopupWindow() {
       document.body.removeChild(popupWindow2);
       
     });
+
+    // Create the overlay
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.zIndex = "9999"; // A higher value to appear on top of the canvas
+
+
+  // Append the image to the overlay
+  overlay.appendChild(imageElement);
+ 
+
+  // Add event listener to the Leroy image to show the popup window when clicked
+  imageElement.addEventListener("click", showPopupWindow);
+
+  document.body.appendChild(overlay);
+  document.body.appendChild(overlay2);
+  return overlay;
     
   }
     
