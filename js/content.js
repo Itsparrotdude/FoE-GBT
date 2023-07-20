@@ -35,11 +35,7 @@ function createOverlay() {
 
 // Function to insert the loaded HTML content into the DOM
 function insertHtmlIntoPage(htmlContent) {
-  // ... (your existing code for insertHtmlIntoPage)
-
-  // // Create the overlay
-  // const overlay = createOverlay();
-
+  
   // Create the image element
   const imageElement = document.createElement("img");
   // Directly use the image URL (since it's web_accessible_resource)
@@ -50,7 +46,7 @@ function insertHtmlIntoPage(htmlContent) {
   imageElement.style.right = "0px";
   imageElement.style.height = "44px";
   imageElement.style.width = "50px";
-  imageElement.style.marginRight = "6px";
+  imageElement.style.marginRight = "8px";
   imageElement.style.borderStyle = "solid";
   imageElement.style.borderColor = "#82ae4c";
   imageElement.style.borderWidth = "2px";
@@ -76,8 +72,8 @@ function showPopupWindow() {
     const popupWindow = document.createElement("div");
     popupWindow.classList.add("popup-window"); // Add the 'popup-window' class to the popup window
     popupWindow.style.position = "fixed";
-    popupWindow.style.top = "50%";
-    popupWindow.style.left = "100%";
+    popupWindow.style.top = "82%";
+    popupWindow.style.left = "98.2%";
     popupWindow.style.transform = "translate(-50%, -50%)";
     popupWindow.style.backgroundColor = "white";
     popupWindow.style.padding = "20px";
@@ -86,7 +82,9 @@ function showPopupWindow() {
     popupWindow.style.color = "black"; // Set the text color to black
     popupWindow.style.backgroundColor = "blue"
     popupWindow.style.marginRight = "6px"
-    popupWindow.style.height = "500px"
+    popupWindow.style.height = "200px"
+    popupWindow.style.width = "11px"
+    
   
     // Create the header with close option (X button)
     const header = document.createElement("div");
@@ -118,6 +116,7 @@ function showPopupWindow() {
   
     // Append the popup window to the body
     document.body.appendChild(popupWindow);
+    
   
     // Function to close the popup window when clicked
     function closePopupWindow() {

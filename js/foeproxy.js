@@ -139,11 +139,11 @@ const FoEproxy = (function () {
 		},
 
 		/**
-		 * Fügt einen Datenhandler für Nachrichten des WebSockets hinzu.
-		 * @param {string} service Der Servicewert, der in der Nachricht gesetzt sein soll oder 'all'
-		 * @param {string} method Der Methodenwert, der in der Nachricht gesetzt sein soll oder 'all'
-		 * TODO: Genaueren Typ für den Callback definieren
-		 * @param {(data: FoE_NETWORK_TYPE) => void} callback Der Handler, welcher mit der Nachricht aufgerufen werden soll.
+		 
+		  @param {string} service
+		  @param {string} method 
+		 
+		 * @param {(data: FoE_NETWORK_TYPE) => void} callback 
 		 */
 		addWsHandler: function (service, method, callback) {
 			// default service and method to 'all'
