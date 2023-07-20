@@ -79,9 +79,8 @@ function showPopupWindow() {
   const popupWindow = document.createElement("div");
   popupWindow.classList.add("popup-window", "silde-up"); // Add the 'popup-window' class to the popup window
   popupWindow.style.position = "fixed";
-  popupWindow.style.top = "82.7%";
-  popupWindow.style.left = "98.2%";
-  popupWindow.style.transform = "translate(-50%, -50%)";
+  popupWindow.style.top = "20%";
+  popupWindow.style.left = "26%";
   popupWindow.style.backgroundColor = "white";
   popupWindow.style.padding = "20px";
   popupWindow.style.border = "1px solid black";
@@ -89,18 +88,18 @@ function showPopupWindow() {
   popupWindow.style.color = "black"; // Set the text color to black
   popupWindow.style.backgroundColor = "blue";
   popupWindow.style.marginRight = "6px";
-  popupWindow.style.height = "20%";
-  popupWindow.style.width = "0.7%";
-  popupWindow.style.transition = "bottom 0.3s ease";
+  popupWindow.style.height = "50%";
+  popupWindow.style.width = "50%";
+ 
 
   // Create the image element for the settingsimage`
   const imageElement2 = document.createElement("img");
   imageElement2.src = chrome.runtime.getURL("images/settingsimage.png");
   imageElement2.style.position = "absolute";
-  imageElement2.style.bottom = "6%";
-  imageElement2.style.right = "0.5%";
-  imageElement2.style.height = "44px";
-  imageElement2.style.width = "45px";
+  imageElement2.style.top = "20%";
+  imageElement2.style.left = "30%";
+  imageElement2.style.height = "40px";
+  imageElement2.style.width = "41px"; 
   imageElement2.style.marginRight = "3px";
   imageElement2.style.zIndex = "10002"; // Set the zIndex to be higher than
 
