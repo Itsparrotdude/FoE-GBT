@@ -79,7 +79,7 @@ function showPopupWindow() {
   const popupWindow = document.createElement("div");
   popupWindow.classList.add("popup-window", "silde-up"); // Add the 'popup-window' class to the popup window
   popupWindow.style.position = "fixed";
-  popupWindow.style.top = "82%";
+  popupWindow.style.top = "82.7%";
   popupWindow.style.left = "98.2%";
   popupWindow.style.transform = "translate(-50%, -50%)";
   popupWindow.style.backgroundColor = "white";
@@ -89,17 +89,16 @@ function showPopupWindow() {
   popupWindow.style.color = "black"; // Set the text color to black
   popupWindow.style.backgroundColor = "blue";
   popupWindow.style.marginRight = "6px";
-  popupWindow.style.height = "200px";
-  popupWindow.style.width = "11px";
-  popupWindow.style.bottom = "-200px";
+  popupWindow.style.height = "20%";
+  popupWindow.style.width = "0.7%";
   popupWindow.style.transition = "bottom 0.3s ease";
 
-  // Create the image element for the settingsimage
+  // Create the image element for the settingsimage`
   const imageElement2 = document.createElement("img");
   imageElement2.src = chrome.runtime.getURL("images/settingsimage.png");
   imageElement2.style.position = "absolute";
-  imageElement2.style.bottom = "55px";
-  imageElement2.style.right = "8px";
+  imageElement2.style.bottom = "6%";
+  imageElement2.style.right = "0.5%";
   imageElement2.style.height = "44px";
   imageElement2.style.width = "45px";
   imageElement2.style.marginRight = "3px";
