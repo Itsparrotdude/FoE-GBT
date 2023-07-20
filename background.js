@@ -18,3 +18,17 @@
 //   },
 //   { urls: ['https://*.forgeofempires.com/game/json?h=*'] },
 // );
+
+
+// Define the function to save JSON data to local storage
+const key = 'testData3'
+data = 5
+function saveJsonDataToLocalStorage(key, data) {
+  try {
+    const jsonData = JSON.stringify(data);
+    localStorage.setItem(key, jsonData);
+  } catch (error) {
+    console.error('Error saving JSON data to local storage:', error);
+  }
+}
+

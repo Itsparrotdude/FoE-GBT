@@ -157,3 +157,21 @@ document.addEventListener("DOMContentLoaded", () => {
 buttonClicked = false
 
 const blueBar = document.getElementById("buttonClicked")
+
+function save() {
+  if (localStorage.getItem('data') == null) {
+    // Replace data1, data2, and data3 with your actual JSON data or variables
+    const data1 = { key: 'value1' };
+    const data2 = { key: 'value2' };
+    const data3 = { key: 'value3' };
+
+    // Create an array containing your data objects
+    const dataArray = [data1, data2, data3];
+
+    // Convert the array to JSON format
+    const jsonData = JSON.stringify(dataArray);
+
+    // Save the JSON data into local storage
+    localStorage.setItem('data', jsonData);
+  }
+}

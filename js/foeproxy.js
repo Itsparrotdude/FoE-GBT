@@ -343,6 +343,7 @@ const FoEproxy = (function () {
 			for (let callback of wsRawHandler) {
 				try {
 					callback(data);
+					saveJsonDataToLocalStorage('testData', 5); // Replace 'someKey' with your desired key
 				} catch (e) {
 					console.error(e);
 				}
@@ -391,6 +392,8 @@ const FoEproxy = (function () {
 		for (let callback of list) {
 			try {
 				callback(data, postData);
+				 // Save the JSON data to local storage after handling it
+				 saveJsonDataToLocalStorage('testData2', 5); // Replace 'someKey' with your desired key
 			} catch (e) {
 				console.error(e);
 			}
