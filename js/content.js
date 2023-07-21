@@ -96,7 +96,7 @@ function showPopupWindow() {
   const imageElement2 = document.createElement("img");
   imageElement2.src = chrome.runtime.getURL("images/settingsimage.png");
   imageElement2.style.position = "absolute";
-  imageElement2.style.top = "20%";
+  imageElement2.style.top = "22%";
   imageElement2.style.left = "30%";
   imageElement2.style.height = "40px";
   imageElement2.style.width = "41px"; 
@@ -119,7 +119,7 @@ function showPopupWindow() {
     const closeButton2 = document.createElement("span");
     closeButton2.textContent = "X";
     closeButton2.style.cursor = "pointer";
-    closeButton2.style.fontSize = "16px";
+    closeButton2.style.fontSize = "30px";
     closeButton2.style.fontWeight = "bold";
     closeButton2.style.color = "red"; // Set the "X" color to red
     closeButton2.style.marginRight = "10px";
@@ -178,10 +178,11 @@ function showPopupWindow() {
   const closeButton = document.createElement("span");
   closeButton.textContent = "X";
   closeButton.style.cursor = "pointer";
-  closeButton.style.fontSize = "16px";
+  closeButton.style.fontSize = "30px";
   closeButton.style.fontWeight = "bold";
   closeButton.style.color = "red"; // Set the "X" color to red
   closeButton.style.marginRight = "10px";
+
 
   // Add event listener to close the popup when the close button is clicked
   closeButton.addEventListener("click", () => {
@@ -194,7 +195,7 @@ function showPopupWindow() {
 
   // Add content to the popup window (you can customize this)
   const content = document.createElement("div");
-  // content.innerHTML = '<h1>Welcome to the FoE-GBT Menu!</h1>';
+  content.innerHTML = '<h1>Welcome to the FoE-GBT Menu!</h1>';
   popupWindow.appendChild(content);
 
   // Append the popup window to the body
