@@ -17,6 +17,81 @@ async function loadHtmlFile(fileUrl) {
   }
 }
 
+function xhrOnLoadHandler() {
+  if (!proxyEnabled) return;
+
+  if (xhrQueue) {
+    xhrQueue.push(this);
+    return;
+  }
+
+  const requestData = getRequestData(this);
+  const url = requestData.url;
+  const postData = requestData.postData;
+
+  // handle raw request handlers
+  for (let callback of proxyRaw) {
+    try {
+      callback(this, requestData);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  // handle metadata request handlers
+  // ... (your existing code for metadata handling)
+
+  // Handle JSON data from game server
+  if (url.indexOf("game/json?h=") > -1) {
+    let jsonData = JSON.parse(this.responseText);
+
+    try {
+      // Handle 'StartupService.getData' first
+      for (let entry of jsonData) {
+        if (entry['requestClass'] === 'StartupService' && entry['requestMethod'] === 'getData') {
+          proxyAction(entry.requestClass, entry.requestMethod, entry, postData);
+        }
+      }
+
+      // Handle other requests
+      for (let entry of jsonData) {
+        if (!(entry['requestClass'] === 'StartupService' && entry['requestMethod'] === 'getData')) {
+          proxyAction(entry.requestClass, entry.requestMethod, entry, postData);
+        }
+      }
+
+    } catch (e) {
+      console.log('Can\'t parse postData: ', postData);
+    }
+  }
+}
+
+localStorage.setItem('name', 'Obaseki Nosa');
+const userArray = ["Obaseki",25]
+localStorage.setItem('user', JSON.stringify(userArray));
+const userData = JSON.parse(localStorage.getItem('user'));
+console.log(userData);
+
+// function save() {
+  if (localStorage.getItem('data') == null) {
+    // Replace data1, data2, and data3 with your actual JSON data or variables
+    const data1 = { key: 'value1' };
+    const data2 = { key: 'value2' };
+    const data3 = { key: 'value3' };
+
+    // Create an array containing your data objects
+    const dataArray = [data1, data2, data3];
+
+    // Convert the array to JSON format
+    const jsonData = JSON.stringify(dataArray);
+
+    // Save the JSON data into local storage
+    localStorage.setItem('data', jsonData);
+  }
+// }
+
+
+
 // Function to create an overlay div
 function createOverlay() {
   const overlay = document.createElement("div");
@@ -69,7 +144,7 @@ function insertHtmlIntoPage(htmlContent) {
   imageElement.addEventListener("click", showPopupWindow);
 
   document.body.appendChild(overlay);
-  document.body.appendChild(overlay2);
+  // document.body.appendChild(overlay2);
   return overlay;
 }
 
@@ -162,7 +237,7 @@ function showPopupWindow() {
   imageElement.addEventListener("click", showPopupWindow);
 
   document.body.appendChild(overlay);
-  document.body.appendChild(overlay2);
+  // document.body.appendChild(overlay2);
   return overlay;
     
   }
@@ -210,11 +285,11 @@ function showPopupWindow() {
 
   
 
-  // Close the popup window when clicked anywhere outside the window
-  overlay.addEventListener("click", closePopupWindow);
-  popupWindow.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
+  // // Close the popup window when clicked anywhere outside the window
+  // overlay.addEventListener("click", closePopupWindow);
+  // popupWindow.addEventListener("click", (event) => {
+  //   event.stopPropagation();
+  // });
 
   setTimeout(() => {
     popupWindow.classList.remove("slide-up");
@@ -237,33 +312,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
 
-  // Adjust overlay position if the game uses iframes
-  const gameIframe = document.querySelector("iframe"); // Update this selector based on the actual iframe element used by the game
-  if (gameIframe) {
-    const iframeRect = gameIframe.getBoundingClientRect();
-    overlay.style.top = iframeRect.top + "px";
-    overlay.style.left = iframeRect.left + "px";
-  }
+  // // Adjust overlay position if the game uses iframes
+  // const gameIframe = document.querySelector("iframe"); // Update this selector based on the actual iframe element used by the game
+  // if (gameIframe) {
+  //   const iframeRect = gameIframe.getBoundingClientRect();
+  //   overlay.style.top = iframeRect.top + "px";
+  //   overlay.style.left = iframeRect.left + "px";
+  // }
 });
 
 buttonClicked = false
 
 const blueBar = document.getElementById("buttonClicked")
-
-function save() {
-  if (localStorage.getItem('data') == null) {
-    // Replace data1, data2, and data3 with your actual JSON data or variables
-    const data1 = { key: 'value1' };
-    const data2 = { key: 'value2' };
-    const data3 = { key: 'value3' };
-
-    // Create an array containing your data objects
-    const dataArray = [data1, data2, data3];
-
-    // Convert the array to JSON format
-    const jsonData = JSON.stringify(dataArray);
-
-    // Save the JSON data into local storage
-    localStorage.setItem('data', jsonData);
-  }
-}

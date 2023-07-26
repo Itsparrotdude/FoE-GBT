@@ -54,8 +54,8 @@ let scripts = {
     console.log("Content.js has been successfully injected!");
 
     // Now load the foeproxy.js script
-    promisedLoadCode(extUrl + "js/foeproxy.js").then(() => {
-      console.log("FoEproxy.js has been successfully injected!");
+    promisedLoadCode(extUrl + "js/foeproxy2.js").then(() => {
+      console.log("FoEproxy2.js has been successfully injected!");
     });
   });
     

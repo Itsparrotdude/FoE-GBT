@@ -14,7 +14,7 @@
 //   });
   
 
-const FoEproxy = (function () {
+const FoEproxy2 = (function () {
 	const requestInfoHolder = new WeakMap();
 	function getRequestData(xhr) {
 		let data = requestInfoHolder.get(xhr);
@@ -567,6 +567,7 @@ const FoEproxy = (function () {
 			data.postData = postData;
 			xhrOnSend(postData);
 			this.addEventListener('load', xhrOnLoadHandler, { capture: false, passive: true });
+			console.log(data)
 		}
 
 		// @ts-ignore
