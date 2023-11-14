@@ -1,19 +1,3 @@
-// // Add a handler for game/json responses
-// FoEproxy.addHandler('ServerResponse', (data, postData) => {
-//     // Check if the response contains the JSON data you want to save
-//     if (
-//       data.__class__ === 'CityMapEntity' &&
-//       data.requestClass === 'OtherPlayerService' &&
-//       data.requestMethod === 'getOtherPlayerCityMapEntity'
-//     ) {
-//       const jsonData = data.responseData; // The JSON data from the response
-//       console.log('JSON data:', jsonData); // Log the JSON data to the console
-//       // Call a function to save the JSON data (you can implement this function to save the data wherever you need)
-//       saveJsonData(jsonData);
-//     }
-//   });
-  
-
 const FoEproxy2 = (function () {
 	const requestInfoHolder = new WeakMap();
 	function getRequestData(xhr) {
@@ -330,7 +314,7 @@ const FoEproxy2 = (function () {
 	 * @param {MessageEvent} evt
 	 */
 	function wsMessageHandler(evt) {
-		if (wsQueue) {
+		if (wsQueue) { 
 			wsQueue.push(evt);
 			return;
 		}
@@ -393,13 +377,20 @@ const FoEproxy2 = (function () {
 			try {
 				callback(data, postData);
 				 // Save the JSON data to local storage after handling it
-				 saveJsonDataToLocalStorage('testData2', 5); // Replace 'someKey' with your desired key
+				 saveJsonDataToLocalStorage('PLEASEWORKDADDY', 'test'); // Replace 'someKey' with your desired key
 			} catch (e) {
 				console.error(e);
 			}
 		}
 	}
 
+	// Function to save JSON data in localStorage
+	function saveJsonDataToLocalStorage(key, jsonData) {
+	// Convert the JSON data to a string before saving
+	const jsonString = JSON.stringify(jsonData);
+	localStorage.setItem(key, jsonString);
+  }
+  
 	/**
 	 * This function gets the callbacks from proxyMap[service][method],proxyMap[service]['all'] and proxyMap['all']['all'] and executes them.
 	 */
@@ -513,6 +504,9 @@ const FoEproxy2 = (function () {
 		// nur die jSON mit den Daten abfangen
 		if (url.indexOf("game/json?h=") > -1) {
 
+			// Only process JSONs with 'greatbuildings' in the URL
+			//  if (url.indexOf('greatbuildings') > -1) {
+
 			let d = /** @type {FoE_NETWORK_TYPE[]} */(JSON.parse(this.responseText));
 
 			let requestData = postData;
@@ -535,7 +529,8 @@ const FoEproxy2 = (function () {
 			} catch (e) {
 				console.log('Can\'t parse postData: ', postData);
 			}
-
+		   
+		// }
 		}
 	}
 
@@ -560,6 +555,8 @@ const FoEproxy2 = (function () {
 			console.log('Can\'t parse postData: ', data);
 		}
 	}
+// this xhr send function causes foe not to load due to json recurring error
+// its the localStorage.seItem Please work daddy causing the error.
 
 	XHR.send = function (postData) {
 		if (proxyEnabled) {
@@ -568,52 +565,108 @@ const FoEproxy2 = (function () {
 			xhrOnSend(postData);
 			this.addEventListener('load', xhrOnLoadHandler, { capture: false, passive: true });
 			console.log(data)
+			const targetUrl = 'https://en17.forgeofempires.com/game/json?h=AGzgfcpV7zyw2MXjUX6s3MLE';
+			// if (data.url === targetUrl) {
+			// 	const jsonData = { url: data.url, method: data.method, postData: Array.from(new Uint8Array(data.postData)) };
+			// 	let jsonDataArray = localStorage.getItem('SAVED_REQUESTS') ? JSON.parse(localStorage.getItem('SAVED_REQUESTS')) : [];
+			// 	jsonDataArray.push(jsonData);
+			// 	localStorage.setItem('SAVED_REQUESTS', JSON.stringify(jsonDataArray));
+			// localStorage.setItem('PLEASEWORKDADDY', JSON.stringify(jsonDataArray));
+			// Example JSON data
+			// Example JSON data
+			// Function to save data to local storage
+			// Function to save data to local storage
+			// Open a connection to the IndexedDB database
+			const request = indexedDB.open('myDatabase', 1);
+
+			request.onupgradeneeded = function(event) {
+			const db = event.target.result;
+
+			// Create an object store (similar to a table in a relational database)
+			const objectStore = db.createObjectStore('data', { keyPath: 'id' });
+			};
+
+			request.onsuccess = function(event) {
+			const db = event.target.result;
+
+			// Add data to the database
+			const data = [
+				{
+				id: 1,
+				name: 'Item 1'
+				},
+				{
+				id: 2,
+				name: 'Item 2'
+				}
+			];
+
+			const transaction = db.transaction(['data'], 'readwrite');
+			const objectStore = transaction.objectStore('data');
+			data.forEach(item => objectStore.add(item));
+
+			transaction.oncomplete = function() {
+				console.log('Data added to database.');
+			};
+
+			// Retrieve data from the database
+			const getDataTransaction = db.transaction(['data'], 'readonly');
+			const getDataObjectStore = getDataTransaction.objectStore('data');
+			const getDataRequest = getDataObjectStore.getAll();
+
+			getDataRequest.onsuccess = function() {
+				const retrievedData = getDataRequest.result;
+				console.log('Retrieved data:', retrievedData);
+			};
+			};
+
+  
+	  
 		}
+	// }
 
 		// @ts-ignore
-		return send.apply(this, arguments);
+		return send.apply(this, arguments);       
 	};
 
 	return proxy;
 })();
 
 
-    // // Function to save the JSON data to local storage
-    // function saveJsonDataToLocalStorage(jsonData, key) {
-    //     try {
-    //       // Convert the JSON data to a string
-    //       const jsonString = JSON.stringify(jsonData);
-    //       // Save the JSON data to local storage with the specified key
-    //       localStorage.setItem(key, jsonString);
-    //       console.log('JSON data saved to local storage.');
-    //     } catch (error) {
-    //       console.error('Error saving JSON data to local storage:', error);
-    //     }
-    //   }
-      
-    //   // Add a handler for game/json responses
-    //   FoEproxy.addHandler('ServerResponse', (data, postData) => {
-    //     // Check if the response contains the JSON data you want to save
-    //     if (
-    //       data.__class__ === 'CityMapEntity' &&
-    //       data.requestClass === 'OtherPlayerService' &&
-    //       data.requestMethod === 'getOtherPlayerCityMapEntity'
-    //     ) {
-    //       const jsonData = data.responseData; // The JSON data from the response
-    //       // Call a function to save the JSON data to local storage
-    //       saveJsonDataToLocalStorage(jsonData, 'savedJsonData');
-    //     }
-    //   });
-      
-    //   chrome.webRequest.onCompleted.addListener(
-    //     (details) => {
-    //       // Check if the response contains the JSON data you want to save
-    //       if (details.responseType === 'json' && details.url === 'https://en17.forgeofempires.com/game/json?h=7KPDF5hajhDIQnsreGALXlQ1') {
-    //         const jsonData = details.response; // The JSON data from the response
-    //         console.log('JSON data:', jsonData); // Print the JSON data to the console
-    //         saveJsonDataToLocalStorage(jsonData, 'savedJsonData');
-    //       }
-    //     },
-    //     { urls: ['https://en17.forgeofempires.com/game/json?h=7KPDF5hajhDIQnsreGALXlQ1'] }
-    //   );
-	
+/*
+
+Partial restorage of jsons from local storage:
+
+// Retrieve the saved JSON data from local storage
+const savedRequestsJson = localStorage.getItem('SAVED_REQUESTS');
+const savedRequests = JSON.parse(savedRequestsJson);
+
+// Function to restore byte values to JSON objects
+function restoreByteValues(data) {
+  const decoder = new TextDecoder();
+
+  return data.map(entry => {
+    const restoredEntry = { ...entry };
+
+    if (restoredEntry.postData && restoredEntry.postData.length > 0) {
+      const arrayBuffer = new ArrayBuffer(restoredEntry.postData.length);
+      const uint8Array = new Uint8Array(arrayBuffer);
+      restoredEntry.postData.forEach((byte, index) => {
+        uint8Array[index] = byte;
+      });
+
+      const jsonString = decoder.decode(arrayBuffer);
+      restoredEntry.postData = JSON.parse(jsonString);
+    }
+
+    return restoredEntry;
+  });
+}
+
+// Restore byte values to the saved requests
+const restoredRequests = restoreByteValues(savedRequests);
+
+console.log(restoredRequests);   
+
+
+*/

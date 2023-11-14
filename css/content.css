@@ -1,12 +1,10 @@
-/* styles.css */
-/* Styling for the square element */
 .foe-extension-square {
     width: 50px;
     height: 50px;
-    background-color: #FF0000; /* Change this to your desired background color */
+    background-color: #FF0000; 
     position: fixed;
-    top: 50%; /* Position the square 50% from the top of the viewport */
-    right: 20px; /* Position the square 20px from the right of the viewport */
-    transform: translateY(-50%); /* Center the square vertically */
-    z-index: 9999; /* Ensure the square is displayed on top of other elements */
+    top: 50%; 
+    right: 20px; 
+    transform: translateY(-50%); 
+    z-index: 9999;
   }
